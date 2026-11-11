@@ -166,19 +166,20 @@ class SoundController {
       const filter = this.ctx.createBiquadFilter();
 
       filter.type = 'bandpass';
-      filter.frequency.setValueAtTime(1400, now);
-      filter.Q.setValueAtTime(3.0, now);
+      filter.frequency.setValueAtTime(1600, now);
+      filter.Q.setValueAtTime(2.2, now);
 
       osc1.type = 'sine';
-      osc1.frequency.setValueAtTime(520, now);
-      osc1.frequency.exponentialRampToValueAtTime(1040, now + 0.16);
+      osc1.frequency.setValueAtTime(560, now);
+      osc1.frequency.exponentialRampToValueAtTime(1120, now + 0.22);
 
       osc2.type = 'triangle';
-      osc2.frequency.setValueAtTime(780, now);
-      osc2.frequency.exponentialRampToValueAtTime(1560, now + 0.16);
+      osc2.frequency.setValueAtTime(840, now);
+      osc2.frequency.exponentialRampToValueAtTime(1680, now + 0.22);
 
-      gain.gain.setValueAtTime(0.032, now);
-      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.18);
+      // Strongly boosted application activation volume
+      gain.gain.setValueAtTime(0.35, now);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.25);
 
       osc1.connect(filter);
       osc2.connect(filter);
@@ -187,16 +188,16 @@ class SoundController {
 
       osc1.start(now);
       osc2.start(now);
-      osc1.stop(now + 0.18);
-      osc2.stop(now + 0.18);
+      osc1.stop(now + 0.25);
+      osc2.stop(now + 0.25);
     } catch {
       // Ignore
     }
   }
 
   /**
-   * Very smooth, clean subtle typing tick SFX
-   * Throttled to keep it fluid and pleasant without harsh clicks
+   * Crisp, loud tactile typing tick SFX
+   * Throttled to keep it fluid and pleasant with rich acoustic presence
    */
   public playTypingTick() {
     if (this.isMuted) return;
@@ -206,7 +207,7 @@ class SoundController {
     if (!this.ctx) return;
 
     const now = performance.now();
-    if (now - this.typingAudioCooldown < 28) return;
+    if (now - this.typingAudioCooldown < 24) return;
     this.typingAudioCooldown = now;
 
     try {
@@ -218,24 +219,24 @@ class SoundController {
       const gain = this.ctx.createGain();
       const filter = this.ctx.createBiquadFilter();
 
-      // Crisp, punchy tactile keystroke click
+      // Sharp resonant bandpass for loud mechanical typewriter click
       filter.type = 'bandpass';
-      filter.frequency.setValueAtTime(2400 + Math.random() * 400, t);
-      filter.Q.setValueAtTime(1.8, t);
+      filter.frequency.setValueAtTime(2500 + Math.random() * 400, t);
+      filter.Q.setValueAtTime(1.4, t);
 
       osc.type = 'triangle';
-      osc.frequency.setValueAtTime(1600 + (Math.random() - 0.5) * 300, t);
+      osc.frequency.setValueAtTime(1650 + (Math.random() - 0.5) * 350, t);
 
-      // Boosted typing volume for full acoustic punch
-      gain.gain.setValueAtTime(0.40, t);
-      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.06);
+      // High volume for unmistakably loud typing sound
+      gain.gain.setValueAtTime(0.85, t);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.07);
 
       osc.connect(filter);
       filter.connect(gain);
       gain.connect(this.ctx.destination);
 
       osc.start(t);
-      osc.stop(t + 0.055);
+      osc.stop(t + 0.075);
     } catch {
       // Ignore
     }
