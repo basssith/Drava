@@ -236,18 +236,11 @@ export function RightWingTransitionAndExit({ scrollProgress }: TransitionPortalP
       {/* 3. GRAND EXIT PORTAL DOOR AT ENDING (x = 24, y = 0, z = -95)   */}
       {/* ============================================================== */}
       <group position={[24, 0, -95]}>
-        {/* Overhead Canopy with Warm Downlight */}
+        {/* Overhead Canopy */}
         <mesh position={[0, 4.4, 1.5]}>
           <boxGeometry args={[8.5, 0.35, 4]} />
           <meshStandardMaterial color="#1a1c24" metalness={0.8} roughness={0.2} />
         </mesh>
-        <pointLight
-          position={[0, 3.8, 1.2]}
-          color="#fff1db"
-          intensity={4.2 + exitDoorOpenFactor * 2.5}
-          distance={18}
-          decay={1.8}
-        />
 
         {/* Portal Surround Columns */}
         <mesh position={[-3.2, 2.0, 0]}>

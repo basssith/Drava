@@ -364,18 +364,18 @@ export function SceneOverlays({
           </div>
         )}
 
-        {/* Clean Footer: Copyright on Left, Social Links on Right */}
+        {/* Clean Footer: Copyright on Left, Social Links on Right with solid contrast backing */}
         {scrollProgress >= 0.90 && (
-          <div className="w-full max-w-7xl mx-auto pt-16 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8e8e93] pointer-events-auto">
-            <div className="tracking-wider">
+          <div className="w-full max-w-7xl mx-auto pt-16 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8e8e93] pointer-events-auto relative z-20">
+            <div className="tracking-wider bg-[#080808]/90 px-3 py-1.5 rounded-lg border border-white/5">
               TM 2026 DRAVA TECHNOLOGIE INC.
             </div>
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-6 bg-[#080808]/90 px-4 py-1.5 rounded-lg border border-white/5">
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-[#92ff5f] transition-colors uppercase tracking-widest text-[11px]"
+                className="text-white hover:text-[#92ff5f] font-medium transition-colors uppercase tracking-widest text-[11px]"
               >
                 Instagram
               </a>
@@ -384,7 +384,7 @@ export function SceneOverlays({
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-[#92ff5f] transition-colors uppercase tracking-widest text-[11px]"
+                className="text-white hover:text-[#92ff5f] font-medium transition-colors uppercase tracking-widest text-[11px]"
               >
                 LinkedIn
               </a>
@@ -393,7 +393,7 @@ export function SceneOverlays({
                 href="https://twitter.com"
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-[#92ff5f] transition-colors uppercase tracking-widest text-[11px]"
+                className="text-white hover:text-[#92ff5f] font-medium transition-colors uppercase tracking-widest text-[11px]"
               >
                 Twitter
               </a>

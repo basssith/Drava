@@ -44,8 +44,8 @@ export function SkylineObservationDeck() {
         <planeGeometry args={[32, 38]} />
         <meshStandardMaterial
           color="#08090c"
-          roughness={0.08}
-          metalness={0.92}
+          roughness={0.4}
+          metalness={0.2}
         />
       </mesh>
 
