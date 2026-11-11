@@ -18,7 +18,7 @@ class SoundController {
       if (AudioCtx) {
         this.ctx = new AudioCtx();
         this.bgGainNode = this.ctx.createGain();
-        this.bgGainNode.gain.setValueAtTime(0.08, this.ctx.currentTime); // Balanced pleasant background level
+        this.bgGainNode.gain.setValueAtTime(0.18, this.ctx.currentTime); // Strong, clear background music level
         this.bgGainNode.connect(this.ctx.destination);
       }
 
@@ -218,17 +218,17 @@ class SoundController {
       const gain = this.ctx.createGain();
       const filter = this.ctx.createBiquadFilter();
 
-      // Crisp, audible tactile keystroke click
+      // Crisp, punchy tactile keystroke click
       filter.type = 'bandpass';
-      filter.frequency.setValueAtTime(2200 + Math.random() * 400, t);
-      filter.Q.setValueAtTime(2.2, t);
+      filter.frequency.setValueAtTime(2400 + Math.random() * 400, t);
+      filter.Q.setValueAtTime(1.8, t);
 
       osc.type = 'triangle';
-      osc.frequency.setValueAtTime(1400 + (Math.random() - 0.5) * 300, t);
+      osc.frequency.setValueAtTime(1600 + (Math.random() - 0.5) * 300, t);
 
-      // Increased volume for clear presence
-      gain.gain.setValueAtTime(0.18, t);
-      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.05);
+      // Boosted typing volume for full acoustic punch
+      gain.gain.setValueAtTime(0.40, t);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.06);
 
       osc.connect(filter);
       filter.connect(gain);
