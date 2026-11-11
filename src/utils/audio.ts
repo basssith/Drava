@@ -206,7 +206,7 @@ class SoundController {
     if (!this.ctx) return;
 
     const now = performance.now();
-    if (now - this.typingAudioCooldown < 32) return; // limit to ~30 keystrokes/sec max
+    if (now - this.typingAudioCooldown < 28) return;
     this.typingAudioCooldown = now;
 
     try {
@@ -218,23 +218,24 @@ class SoundController {
       const gain = this.ctx.createGain();
       const filter = this.ctx.createBiquadFilter();
 
-      // Soft mechanical/digital typewriter impulse
+      // Crisp, audible tactile keystroke click
       filter.type = 'bandpass';
-      filter.frequency.setValueAtTime(2400 + Math.random() * 500, t);
-      filter.Q.setValueAtTime(3.8, t);
+      filter.frequency.setValueAtTime(2200 + Math.random() * 400, t);
+      filter.Q.setValueAtTime(2.2, t);
 
       osc.type = 'triangle';
-      osc.frequency.setValueAtTime(1800 + (Math.random() - 0.5) * 400, t);
+      osc.frequency.setValueAtTime(1400 + (Math.random() - 0.5) * 300, t);
 
-      gain.gain.setValueAtTime(0.045, t);
-      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.04);
+      // Increased volume for clear presence
+      gain.gain.setValueAtTime(0.18, t);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.05);
 
       osc.connect(filter);
       filter.connect(gain);
       gain.connect(this.ctx.destination);
 
       osc.start(t);
-      osc.stop(t + 0.045);
+      osc.stop(t + 0.055);
     } catch {
       // Ignore
     }
