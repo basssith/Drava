@@ -18,7 +18,7 @@ class SoundController {
       if (AudioCtx) {
         this.ctx = new AudioCtx();
         this.bgGainNode = this.ctx.createGain();
-        this.bgGainNode.gain.setValueAtTime(0.60, this.ctx.currentTime); // 60% volume
+        this.bgGainNode.gain.setValueAtTime(0.06, this.ctx.currentTime); // Subtle ambient background level
         this.bgGainNode.connect(this.ctx.destination);
       }
 
