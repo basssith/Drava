@@ -18,7 +18,7 @@ class SoundController {
       if (AudioCtx) {
         this.ctx = new AudioCtx();
         this.bgGainNode = this.ctx.createGain();
-        this.bgGainNode.gain.setValueAtTime(0.008, this.ctx.currentTime); // Ultra-delicate background atmosphere
+        this.bgGainNode.gain.setValueAtTime(0.04, this.ctx.currentTime); // Soft, clearly audible ambient sound
         this.bgGainNode.connect(this.ctx.destination);
       }
 
