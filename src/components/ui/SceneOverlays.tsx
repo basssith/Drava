@@ -364,13 +364,13 @@ export function SceneOverlays({
           </div>
         )}
 
-        {/* Clean Footer: Copyright on Left, Social Links on Right with solid contrast backing */}
+        {/* Clean Footer: Copyright on Left, Social Links on Right without enclosing boxes */}
         {scrollProgress >= 0.90 && (
           <div className="w-full max-w-7xl mx-auto pt-16 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8e8e93] pointer-events-auto relative z-20">
-            <div className="tracking-wider bg-[#080808]/90 px-3 py-1.5 rounded-lg border border-white/5">
+            <div className="tracking-wider text-[#8e8e93]">
               TM 2026 DRAVA TECHNOLOGIE INC.
             </div>
-            <div className="flex items-center gap-6 bg-[#080808]/90 px-4 py-1.5 rounded-lg border border-white/5">
+            <div className="flex items-center gap-6">
               <a
                 href="https://instagram.com"
                 target="_blank"
