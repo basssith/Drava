@@ -1,5 +1,4 @@
 import { Canvas } from '@react-three/fiber';
-import { Environment, ContactShadows } from '@react-three/drei';
 import * as THREE from 'three';
 import { ArchitecturalHQ } from './ArchitecturalHQ';
 import { EntrancePortal } from './EntrancePortal';
@@ -29,45 +28,24 @@ export function DravaCanvas({ scrollProgress, onSelectApp, activeAppId, eventSou
           antialias: true,
           powerPreference: 'high-performance',
           toneMapping: THREE.ACESFilmicToneMapping,
-          toneMappingExposure: 1.25,
+          toneMappingExposure: 1.15,
         }}
       >
-        {/* Photorealistic PBR Environment Reflections (City Preset for metallic reflections & glass highlights) */}
-        <Environment preset="city" environmentIntensity={0.65} />
-
         {/* Atmospheric Fog */}
         <color attach="background" args={['#080808']} />
         <fog attach="fog" args={['#080808', 25, 260]} />
 
-        {/* Global Cinematic Architectural Lights */}
-        <ambientLight intensity={0.4} color="#cbd5e1" />
+        {/* Global Cinematic Architectural Lights (Fast & Highly Optimized) */}
+        <ambientLight intensity={0.35} color="#cbd5e1" />
         <directionalLight
           position={[25, 45, 35]}
-          intensity={1.4}
+          intensity={1.2}
           color="#f1f5f9"
         />
         <directionalLight
           position={[-30, 25, -50]}
-          intensity={0.7}
+          intensity={0.6}
           color="#38bdf8"
-        />
-
-        {/* Ground Contact Shadows & Soft Ambient Occlusion underneath plinths & architecture */}
-        <ContactShadows
-          position={[24, 0.02, -55]}
-          opacity={0.75}
-          scale={50}
-          blur={1.8}
-          far={12}
-          color="#000000"
-        />
-        <ContactShadows
-          position={[0, 0.02, 10]}
-          opacity={0.8}
-          scale={60}
-          blur={2.0}
-          far={16}
-          color="#000000"
         />
 
         {/* Motion Provider tracks real-time camera travel velocity */}
