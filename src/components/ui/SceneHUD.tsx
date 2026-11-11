@@ -19,27 +19,27 @@ export function SceneHUD({
     <>
       {/* Bottom-Right Minimalist Cinematic View Button & Scroll Indicator */}
       <div className="fixed bottom-6 right-6 z-40 flex items-center gap-4">
-        {/* Cinematic View Toggle Button */}
+        {/* Clean borderless Cinematic View Toggle Button */}
         <button
           onClick={() => {
             sound.playClick();
             onToggleUI();
           }}
-          className="group flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0a0b10]/80 hover:bg-[#14151f] border border-white/10 hover:border-[#92ff5f]/50 transition-all cursor-pointer backdrop-blur-md shadow-lg pointer-events-auto"
+          className="group flex items-center gap-2 py-1.5 transition-all cursor-pointer pointer-events-auto bg-transparent border-none shadow-none"
           title={uiHidden ? 'Exit Cinematic View' : 'Enter Cinematic View'}
         >
           {uiHidden ? (
             <EyeOff className="w-3.5 h-3.5 text-[#92ff5f]" />
           ) : (
-            <Eye className="w-3.5 h-3.5 text-white/70 group-hover:text-[#92ff5f] transition-colors" />
+            <Eye className="w-3.5 h-3.5 text-[#8e8e93] group-hover:text-[#92ff5f] transition-colors" />
           )}
-          <span className="text-[10px] font-mono tracking-wider uppercase text-white/80 group-hover:text-[#92ff5f] transition-colors">
+          <span className="text-[11px] font-mono tracking-widest uppercase text-[#8e8e93] group-hover:text-[#92ff5f] transition-colors">
             {uiHidden ? 'EXIT VIEW' : 'CINEMATIC VIEW'}
           </span>
         </button>
 
         {/* Scroll Bar Indicator */}
-        <div className="hidden sm:flex items-center gap-2 text-[11px] font-mono text-[#A5A5A5] pointer-events-none">
+        <div className="hidden sm:flex items-center gap-2 text-[11px] font-mono text-[#8e8e93] pointer-events-none">
           <span className="tracking-widest">SCROLL</span>
           <div className="scroll-indicator-bar" />
         </div>
