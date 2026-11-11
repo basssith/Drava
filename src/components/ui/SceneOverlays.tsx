@@ -364,10 +364,10 @@ export function SceneOverlays({
           </div>
         )}
 
-        {/* Clean Footer: Copyright on Left, Social Links on Right without enclosing boxes */}
+        {/* Clean Footer: Copyright on Left, Social Links on Right */}
         {scrollProgress >= 0.90 && (
-          <div className="w-full max-w-7xl mx-auto pt-16 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8e8e93] pointer-events-auto relative z-20">
-            <div className="tracking-wider text-[#8e8e93]">
+          <div className="w-full max-w-7xl mx-auto pt-16 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#52525b] pointer-events-auto relative z-20">
+            <div className="tracking-wider text-[#52525b]">
               TM 2026 DRAVA TECHNOLOGIE INC.
             </div>
             <div className="flex items-center gap-6">
@@ -375,25 +375,25 @@ export function SceneOverlays({
                 href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
-                className="text-white hover:text-[#92ff5f] font-medium transition-colors uppercase tracking-widest text-[11px]"
+                className="text-[#52525b] hover:text-[#92ff5f] font-medium transition-colors uppercase tracking-widest text-[11px]"
               >
                 Instagram
               </a>
-              <span className="text-white/20">|</span>
+              <span className="text-[#3f3f46]">|</span>
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noreferrer"
-                className="text-white hover:text-[#92ff5f] font-medium transition-colors uppercase tracking-widest text-[11px]"
+                className="text-[#52525b] hover:text-[#92ff5f] font-medium transition-colors uppercase tracking-widest text-[11px]"
               >
                 LinkedIn
               </a>
-              <span className="text-white/20">|</span>
+              <span className="text-[#3f3f46]">|</span>
               <a
                 href="https://twitter.com"
                 target="_blank"
                 rel="noreferrer"
-                className="text-white hover:text-[#92ff5f] font-medium transition-colors uppercase tracking-widest text-[11px]"
+                className="text-[#52525b] hover:text-[#92ff5f] font-medium transition-colors uppercase tracking-widest text-[11px]"
               >
                 Twitter
               </a>
