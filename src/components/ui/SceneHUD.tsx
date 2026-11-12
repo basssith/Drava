@@ -45,30 +45,24 @@ export function SceneHUD({
         </div>
       </div>
 
-      {/* Right Stepper Dots along Journey */}
-      <div className="fixed right-6 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col gap-3 glass-panel p-2 rounded-full border border-white/5">
+      {/* Right Stepper Dots along Journey (Pure Visual Indicator - Non-clickable & No Hover Tooltips) */}
+      <div className="fixed right-6 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col gap-3 glass-panel p-2 rounded-full border border-white/5 pointer-events-none select-none">
         {JOURNEY_STAGES.map((s) => {
           const isActive =
             scrollProgress >= s.zRange[0] && scrollProgress <= s.zRange[1];
-          const midpoint = (s.zRange[0] + s.zRange[1]) / 2;
           return (
-            <button
+            <div
               key={s.id}
-              onClick={() => onJumpToStage(midpoint)}
-              className="group relative flex items-center justify-center p-1 cursor-pointer"
-              title={`${s.title} (${s.label})`}
+              className="relative flex items-center justify-center p-1"
             >
               <span
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   isActive
                     ? 'bg-[#92ff5f] scale-125 shadow-[0_0_8px_#92ff5f]'
-                    : 'bg-white/20 hover:bg-white/60'
+                    : 'bg-white/20'
                 }`}
               />
-              <div className="absolute right-7 px-2.5 py-1 rounded bg-[#12131a] border border-white/10 text-[10px] font-mono whitespace-nowrap text-white opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity">
-                {s.title}
-              </div>
-            </button>
+            </div>
           );
         })}
       </div>
